@@ -10,11 +10,11 @@ const navigateEvent = (route: string, action: string, data: any) => ({
   ...data,
 });
 
-const responseForNavigate = (message: any) => {
+const responseForNavigate = (messageData: any) => {
   // Build the response message for a navigate.
   const {
     data: { webapp_id, route, params, context, transition },
-  } = message;
+  } = messageData;
   // If we are passed a webapp_id this route is navigating to an external web app.
   let result = webapp_id ? `external://${webapp_id}/${route}` : route;
   const event = navigateEvent(result, transition, { params, context });
@@ -25,7 +25,7 @@ const navigationMiddleware: OnSendMiddleware = dispatch => (message, next) => {
   if (message.domain !== 'iwa' && message.eventType !== 'navigate') {
     return next(message);
   }
-  dispatch(responseForNavigate(message));
+  dispatch(responseForNavigate(message.data));
 };
 
 export default navigationMiddleware;
