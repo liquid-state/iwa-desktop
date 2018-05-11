@@ -1,0 +1,58 @@
+{
+  "name": "@liquid-state/iwa-desktop",
+  "version": "0.0.0",
+  "description": "A set of functions and utilities to make it easy to run IWAs in a desktop environment.",
+  "files": [
+    "dist/"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --parser typescript --single-quote --trailing-comma es5 --print-width 99 --write \"./src/**/*.ts\"",
+    "test": "jest",
+    "prepack": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liquid-state/iwa-desktop.git"
+  },
+  "author": {
+    "name": "Liquid State",
+    "email": "dev@liquid-state.com",
+    "url": "https://liquid-state.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liquid-state/iwa-desktop/issues"
+  },
+  "homepage": "https://github.com/liquid-state/iwa-desktop#readme",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "@liquid-state/iwa-core": "^1",
+    "@types/jest": "^22.1.2",
+    "jest": "^22.3.0",
+    "prettier": "^1.10.2",
+    "ts-jest": "^22.0.4",
+    "typescript": "^2.7.1"
+  },
+  "peerDependencies": {
+    "@liquid-state/iwa-core": "^1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|.*.test)\\.(ts|tsx|js)$",
+    "roots": [
+      "<rootDir>/src"
+    ]
+  }
+}
