@@ -1,6 +1,6 @@
 {
   "name": "@liquid-state/iwa-desktop",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A set of functions and utilities to make it easy to run IWAs in a desktop environment.",
   "files": [
     "dist/"
