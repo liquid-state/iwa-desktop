@@ -3,7 +3,7 @@ import { WrappedSendingMessage } from '@liquid-state/iwa-core/dist/communicator/
 
 const configMiddleware: (
   config: { [key: string]: any }
-) => MiddlewareT<WrappedSendingMessage, any> = config => dispatch => (message, next) => {
+) => MiddlewareT<WrappedSendingMessage, any> = config => dispatch => (next, done) => message => {
   if (message.domain !== 'config') {
     return next(message);
   }
@@ -20,6 +20,7 @@ const configMiddleware: (
     request_id: message.data.request_id,
     response_data: result,
   });
+  done();
 };
 
 export default configMiddleware;

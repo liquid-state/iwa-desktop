@@ -21,11 +21,12 @@ const responseForNavigate = (messageData: any) => {
   return event;
 };
 
-const navigationMiddleware: OnSendMiddleware = dispatch => (message, next) => {
+const navigationMiddleware: OnSendMiddleware = dispatch => (next, done) => message => {
   if (message.domain !== 'iwa' && message.eventType !== 'navigate') {
     return next(message);
   }
   dispatch(responseForNavigate(message.data));
+  done();
 };
 
 export default navigationMiddleware;
