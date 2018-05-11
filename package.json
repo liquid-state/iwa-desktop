@@ -1,6 +1,6 @@
 {
   "name": "@liquid-state/iwa-desktop",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A set of functions and utilities to make it easy to run IWAs in a desktop environment.",
   "files": [
     "dist/"
@@ -27,9 +27,7 @@
     "url": "https://github.com/liquid-state/iwa-desktop/issues"
   },
   "homepage": "https://github.com/liquid-state/iwa-desktop#readme",
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
     "@liquid-state/iwa-core": "^1",
     "@types/jest": "^22.1.2",
