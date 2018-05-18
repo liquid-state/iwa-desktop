@@ -31,11 +31,17 @@ const get = (message: WrappedSendingMessage) => {
 
 const set = (message: WrappedSendingMessage) => {
   const kv = getKV();
-  const items = (message.data.data as any).items as { key: string }[];
+  const items = (message.data.data as any).items as { key: string, value: any }[];
+  const result: {[key: string]: any} = {};
   items.forEach(item => {
     kv[item.key] = item;
+    result[item.key] = {
+      found: true,
+      value: item.value
+    };
   });
   localStorage.setItem('kv', JSON.stringify(kv));
+  return result;
 }
 
 const keyValueMiddleware: OnSendMiddleware = dispatch => (next, done) => message => {
@@ -53,6 +59,12 @@ const keyValueMiddleware: OnSendMiddleware = dispatch => (next, done) => message
     done();
   } else if (message.eventType === 'set') {
     const result = set(message);
+    dispatch({
+      purpose: 'response',
+      request_id: message.data.request_id,
+      event_type: 'set',
+      response_data: result
+    });
     done();
   } else {
     throw `Invalid event type ${message.eventType} for domain kv`;
