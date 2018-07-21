@@ -3,16 +3,21 @@ import { WrappedSendingMessage } from "@liquid-state/iwa-core/dist/communicator/
 
 export type OnSendMiddleware = MiddlewareT<WrappedSendingMessage, any>;
 
-let kv: string | null = null;
+let _kv: string | null = null;
 
 const getKV = () => {
-  if (!kv) {
-    kv = localStorage.getItem('kv');
-    if (!kv) {
-      kv = '{}';
+  if (!_kv) {
+    _kv = localStorage.getItem('kv');
+    if (!_kv) {
+      _kv = '{}';
     }
   }
-  return JSON.parse(kv);
+  return JSON.parse(_kv);
+}
+
+const updateKv = (value: object) => {
+  _kv = JSON.stringify(value);
+  localStorage.setItem('kv', _kv);
 }
 
 const get = (message: WrappedSendingMessage) => {
@@ -40,7 +45,7 @@ const set = (message: WrappedSendingMessage) => {
       value: item.value
     };
   });
-  localStorage.setItem('kv', JSON.stringify(kv));
+  updateKv(kv);
   return result;
 }
 
