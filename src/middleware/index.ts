@@ -7,6 +7,9 @@ import navigation from './navigation';
 import keyValue from './keyValue';
 
 const injectDefaultMiddleware = (communicator: INativeCommunicator) => {
+  if (!communicator.addOnSendMiddleware) {
+    return;
+  }
   communicator.addOnSendMiddleware(navigation);
   communicator.addOnSendMiddleware(keyValue);
   return communicator;
