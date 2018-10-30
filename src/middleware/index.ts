@@ -5,6 +5,7 @@ import {
 import config from './config';
 import navigation from './navigation';
 import keyValue from './keyValue';
+import setReady from './setReady';
 
 const injectDefaultMiddleware = (communicator: INativeCommunicator) => {
   if (!communicator.addOnSendMiddleware) {
@@ -12,6 +13,7 @@ const injectDefaultMiddleware = (communicator: INativeCommunicator) => {
   }
   communicator.addOnSendMiddleware(navigation);
   communicator.addOnSendMiddleware(keyValue);
+  communicator.addOnSendMiddleware(setReady);
   return communicator;
 };
 
@@ -19,5 +21,6 @@ export default {
   injectDefaultMiddleware,
   config,
   navigation,
-  keyValue
+  keyValue,
+  setReady,
 };
