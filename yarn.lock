@@ -17,8 +17,9 @@
     js-tokens "^3.0.0"
 
 "@liquid-state/iwa-core@^1":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@liquid-state/iwa-core/-/iwa-core-1.0.0.tgz#9f63be8fcfddff9e5a5dc626385780057f4ef3f0"
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@liquid-state/iwa-core/-/iwa-core-1.8.2.tgz#01a6eebfaf3d322d5e903781caf5d586326ad55c"
+  integrity sha512-lFdQFY62vGflHN7XYr/zq15skzz1v0DWVnf6WoxI0bBZULSFv8c5Fb/uwSxSOnQDrKUuPZeq10eFL4r3x0FhUA==
   dependencies:
     lodash-es "^4.17.5"
 
@@ -2013,8 +2014,9 @@ locate-path@^2.0.0:
     path-exists "^3.0.0"
 
 lodash-es@^4.17.5:
-  version "4.17.10"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.10.tgz#62cd7104cdf5dd87f235a837f0ede0e8e5117e05"
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.11.tgz#145ab4a7ac5c5e52a3531fb4f310255a152b4be0"
+  integrity sha512-DHb1ub+rMjjrxqlB3H56/6MXtm1lSksDp2rA2cNWjG8mlDUYFhUj3Di2Zn5IwSU87xLv8tNIQ7sSwE/YOX/D/Q==
 
 lodash.sortby@^4.7.0:
   version "4.7.0"
