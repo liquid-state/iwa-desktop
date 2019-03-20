@@ -9,7 +9,7 @@ const setReadyMiddleware: OnSendMiddleware = dispatch => (next, done) => message
   }
   dispatch({
     purpose: 'navigate',
-    route: undefined
+    route: undefined,
   });
   done();
 };
