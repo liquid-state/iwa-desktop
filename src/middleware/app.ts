@@ -25,6 +25,12 @@ const appMiddleware: OnSendMiddleware = dispatch => (next, done) => message => {
       );
       done();
       break;
+    case 'reset':
+      history.pushState({}, '', '/#/');
+      location.reload(true);
+      done();
+      break;
+      // @TODO Need to dispatch an event back?
     default:
       console.warn('Unhandled app domain event', message);
       return next(message);
