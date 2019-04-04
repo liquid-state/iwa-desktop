@@ -20,6 +20,13 @@ const iwaMiddleware: OnSendMiddleware = dispatch => (next, done) => message => {
         }));
       done()
       break;
+    case 'navigate_back':
+      window.history.back();
+      done();
+      break;
+    default:
+      console.warn('Unhandled iwa domain event', message);
+      return next(message);
   }
 }
 
