@@ -14,15 +14,6 @@ const launchMiddleware: OnSendMiddleware = dispatch => (next, done) => message =
       done();
       break;
       // @TODO Need to dispatch an event back?
-    case 'document':
-      const id = (message.data.data as any).product_id.split('.').pop();
-      const HOST = 'https://ubiquity.liquidstate.cloud';
-      const url = `${HOST}/pagepreview/${id}/?embedded=true&ondevice=true`
-      console.log('Document Open', url);
-      // window.open(url, "_document");
-      console.log(id);
-      done();
-      break;
     default:
       console.warn('Unhandled launch domain event', message);
       return next(message);
