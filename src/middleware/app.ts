@@ -14,6 +14,7 @@ const appMiddleware: OnSendMiddleware = dispatch => (next, done) => message => {
         request_id: message.data.request_id,
         response_data: { status: navigator.onLine },
       });
+      done();
       break;
     case 'user_location':
       navigator.geolocation.getCurrentPosition(loc =>
