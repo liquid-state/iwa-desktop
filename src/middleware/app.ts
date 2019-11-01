@@ -8,6 +8,13 @@ const appMiddleware: OnSendMiddleware = dispatch => (next, done) => message => {
     return next(message);
   }
   switch (message.eventType) {
+    case 'online_status':
+      dispatch({
+        purpose: 'response',
+        request_id: message.data.request_id,
+        response_data: { status: navigator.onLine },
+      });
+      break;
     case 'user_location':
       navigator.geolocation.getCurrentPosition(loc =>
         dispatch({
@@ -30,7 +37,7 @@ const appMiddleware: OnSendMiddleware = dispatch => (next, done) => message => {
       location.reload(true);
       done();
       break;
-      // @TODO Need to dispatch an event back?
+    // @TODO Need to dispatch an event back?
     default:
       console.warn('Unhandled app domain event', message);
       return next(message);

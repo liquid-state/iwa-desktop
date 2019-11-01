@@ -10,10 +10,10 @@ const launchMiddleware: OnSendMiddleware = dispatch => (next, done) => message =
   switch (message.eventType) {
     case 'iab':
       const { url, settings } = message.data.data as any;
-      window.open(url, "_iab");
+      window.open(url, '_iab');
       done();
       break;
-      // @TODO Need to dispatch an event back?
+    // @TODO Need to dispatch an event back?
     default:
       console.warn('Unhandled launch domain event', message);
       return next(message);
